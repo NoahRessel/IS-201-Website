@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Space Exploration Scratch Page</title>
+        <style>
+          body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f8ff;
+            color: #626060;
+            margin: 0;
+            padding: 1rem;
+          }
+      
+          .header {
+            background-color: #003366;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 12px;
+          }
+      
+          nav a {
+            color: #004080;
+            font-weight: bold;
+            text-decoration: none;
+            margin-right: 1rem;
+          }
+      
+          nav a:hover {
+            text-decoration: underline;
+          }
+      
+          .section {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+          }
+      
+          .stars-img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 1rem auto;
+          }
+      
+          .anchor-nav {
+            margin-top: 1rem;
+          }
+      
+          .anchor-nav a {
+            margin-right: 20px;
+          }
+        </style>
+        <!-- Include the Tableau Embedding API v3 -->
+        <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+      </head>
+      <body>
+      
+        <!-- Back to professional page -->
+        <nav>
+          <a href="index.html">← Back to Professional Page</a>
+        </nav>
+        <a href ="webapp.html">Web App Page</a>
+        </nav>
+          <h1>Space Exploration</h1>
+          <p>Why rockets, telescopes, and distant planets capture my curiosity</p>
+        </header>
+      
+        <!-- Anchor navigation -->
+        <div class="anchor-nav">
+          <a href="#missions">Top Missions</a>
+          <a href="#video">Watch Launch</a>
+          <a href="#tableau">Interactive Graph</a>
+        </div>
+      
+        <!-- Ordered/Unordered List -->
+        <div class="section" id="missions">
+          <h2>Top 3 Space Missions</h2>
+          <ol>
+            <li>Apollo 11
+              <ul>
+                <li>First humans on the moon</li>
+                <li>1969, NASA</li>
+              </ul>
+            </li>
+            <li>Mars Rover Perseverance
+              <ul>
+                <li>Searching for life on Mars</li>
+                <li>Launched in 2020</li>
+              </ul>
+            </li>
+            <li>James Webb Telescope
+              <ul>
+                <li>Advanced deep space imagery</li>
+                <li>Launched 2021</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      
+        <!-- Working Image -->
+        <img src="assets/img/stars.jpg"
+     alt="NASA Logo"
+     width="600" 
+     style="border-radius: 10px; display: block; margin: 20px auto;">
+      
+        <!-- YouTube Video -->
+        <div class="section" id="video">
+          <h2>Watch a Rocket Launch</h2>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/0qo78R_yYFA" 
+            title="Rocket Launch" frameborder="0" allowfullscreen></iframe>
+        </div>
+      
+        <!-- Tableau Graph -->
+        <div class="section" id="tableau">
+          <h2>Interactive Superstore Sales Visualization</h2>
+          <tableau-viz id="tableauViz"
+            src="https://public.tableau.com/views/Superstore_24/Overview"
+            width="100%"
+            height="600px"
+            toolbar="bottom"
+            hide-tabs>
+          </tableau-viz>
+        </div>
+      
+      </body>
+      </html>

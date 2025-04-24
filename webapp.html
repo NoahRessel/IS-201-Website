@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🔮 Mystic Tarot Fortune Teller</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cinzel', serif;
+      background: linear-gradient(to bottom right, #1b1b2f, #3e2f5b);
+      color: #f0e6f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 8px #c084fc;
+      margin-bottom: 1rem;
+    }
+
+    .tarot-container {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card {
+      width: 150px;
+      height: 220px;
+      background: #121212;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(200, 132, 252, 0.5);
+      perspective: 1000px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .card-inner {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+
+    .card.flipped .card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .card-face {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .front {
+      background: linear-gradient(45deg, #3e2f5b, #8a4fff);
+    }
+
+    .back {
+      background: #1e1e2e;
+      transform: rotateY(180deg);
+    }
+
+    button {
+      background: #c084fc;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <h1>🔮 Mystic Tarot Fortune</h1>
+  <div class="tarot-container">
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-face front">Past</div>
+        <div class="card-face back" id="card1"></div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-face front">Present</div>
+        <div class="card-face back" id="card2"></div>
+      </div>
+    </div>
+    <div class="card" onclick="flipCard(this)">
+      <div class="card-inner">
+        <div class="card-face front">Future</div>
+        <div class="card-face back" id="card3"></div>
+      </div>
+    </div>
+  </div>
+  <button onclick="drawCards()">Draw My Fortune</button>
+
+  <script>
+    const tarotMeanings = [
+      "The Fool – A fresh start awaits, guided by innocence and spontaneity.",
+      "The Magician – You have all the tools to manifest your desires.",
+      "The High Priestess – Trust your intuition; the answer lies within.",
+      "The Empress – Fertility, creativity, and abundance surround you.",
+      "The Emperor – Structure and authority pave your path.",
+      "The Lovers – Choices of the heart guide your journey.",
+      "The Chariot – Victory comes with willpower and determination.",
+      "Strength – Inner courage tames the fiercest doubts.",
+      "The Hermit – Solitude reveals the deepest truths.",
+      "Wheel of Fortune – Destiny spins a new cycle."
+    ];
+
+    function drawCards() {
+      const chosen = tarotMeanings.sort(() => 0.5 - Math.random()).slice(0, 3);
+      document.getElementById("card1").innerText = chosen[0];
+      document.getElementById("card2").innerText = chosen[1];
+      document.getElementById("card3").innerText = chosen[2];
+
+      // Reset flip
+      document.querySelectorAll('.card').forEach(c => c.classList.remove('flipped'));
+    }
+
+    function flipCard(card) {
+      card.classList.toggle("flipped");
+    }
+
+    drawCards(); // Initial draw
+  </script>
+</body>
+</html>
